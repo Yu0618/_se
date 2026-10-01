@@ -29,5 +29,3 @@ cd mycurl
 
 # 安裝依賴套件
 pip install requests
-
-5. 自動跟隨重定向並儲存至檔案Bashpython mycurl.py -L -o example.html [https://httpbin.org/redirect-to?url=https://example.com
