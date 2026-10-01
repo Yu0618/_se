@@ -1,31 +1,66 @@
-# mycurl 🚀
+# HW1 - mycurl
 
-`mycurl` 是一個基於 Python 開發的輕量級類 `curl` 命令列 HTTP 用戶端工具。它提供簡潔且直覺的介面，支援常用的 HTTP 請求方式、自訂 Header、傳送 JSON 與 Form 資料、跟隨重定向以及寫入檔案等功能。
+## 一、作業介紹
+
+本作業使用 Python 實作一個簡易版的 `curl` HTTP 命令列工具。
+
+程式檔案：
+
+```text
+HW1/mycurl.py
+```
+
+主要使用 Python 的 `requests` 套件發送 HTTP Request，並提供多種常見的 HTTP 操作功能。
 
 ---
 
-## 💡 特點 (Features)
+## 二、使用套件
 
-* **常用 HTTP 方法支援**：支援 `GET`, `POST`, `PUT`, `DELETE`, `PATCH` 等請求。
-* **自訂 Header**：使用 `-H` 參數快速加入自訂 HTTP 標頭。
-* **便利的 JSON 支援**：提供 `--json` 參數，自動設定標頭並傳送 JSON 結構。
-* **詳細診斷模式**：支援 `-i` (印出 Header) 與 `-v` (Verbose 模式)，方便排查 API 問題。
-* **重定向與檔寫入**：支援 `-L` 自動跟隨重定向，以及 `-o` 將回應寫入指定的檔案。
+本程式使用以下套件：
 
----
+| 套件 | 用途 |
+|---|---|
+| `argparse` | 處理命令列參數 |
+| `json` | 處理 JSON 資料 |
+| `sys` | 處理輸出及程式結束 |
+| `requests` | 發送 HTTP Request |
 
-## 📦 安裝說明 (Installation)
+其中 `argparse`、`json`、`sys` 為 Python 內建套件。
 
-### 1. 先決條件
-* **Python 3.8+**
-* **requests** 套件
-
-### 2. 複製專案與安裝套件
+需要另外安裝 `requests`：
 
 ```bash
-# 複製專案 (或直接下載 mycurl.py)
-git clone [https://github.com/your-username/mycurl.git](https://github.com/your-username/mycurl.git)
-cd mycurl
-
-# 安裝依賴套件
 pip install requests
+```
+
+---
+
+## 三、程式功能
+
+`mycurl.py` 提供以下功能：
+
+- GET / POST / PUT / DELETE 等 HTTP Method
+- 自訂 HTTP Header
+- 傳送一般 Data
+- 傳送 JSON 資料
+- 顯示 Response Header
+- 將 Response 儲存成檔案
+- 自動跟隨 Redirect
+- 設定 Request Timeout
+- Verbose 詳細資訊模式
+- 基本錯誤處理
+
+---
+
+## 四、使用方式
+
+基本格式：
+
+```bash
+python mycurl.py [OPTIONS] URL
+```
+
+例如：
+
+```bash
+python mycurl.py https://httpbin.org/get
