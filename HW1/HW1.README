@@ -29,20 +29,5 @@ cd mycurl
 
 # 安裝依賴套件
 pip install requests
-3. 設定為可執行指令 (可選)在 Unix-like 系統（Linux/macOS）上，您可以賦予執行權限並建立 Alias 以便全域調用：Bashchmod +x mycurl.py
 
-# 設定臨時別名 (或加入 ~/.bashrc / ~/.zshrc)
-alias mycurl="$(pwd)/mycurl.py"
-🛠 使用說明 (Usage)基本命令語法如下：Bashpython mycurl.py [FLAGS] <URL>
-常用參數選項 (Options)參數短參數說明範例--request-X指定 HTTP 請求方法 (預設: GET)-X POST--header-H加入 HTTP Header (可重複使用)-H "Authorization: Bearer token"--data-d傳送 Raw Data / Form 資料-d "name=alice&age=20"--json傳送 JSON 字串 (自動帶入 Content-Type: application/json)--json '{"key":"val"}'--include-i在輸出中包含回應的 HTTP Status 與 Headers-i--output-o將回應 Body 寫入檔案-o result.html--location-L自動跟隨 HTTP 重定向 (Redirect)-L--verbose-v顯示完整的請求與回應傳輸細節-v--timeout設定請求超時時間 (預設: 30 秒)--timeout 10🧪 使用範例 (Examples)1. 發送簡單 GET 請求Bashpython mycurl.py [https://httpbin.org/get](https://httpbin.org/get)
-2. 查看回應標頭與詳細連線過程Bash# 印出 HTTP Status Code 與 Response Headers
-python mycurl.py -i [https://httpbin.org/get](https://httpbin.org/get)
-
-# 啟用 Verbose 模式，查看 Request 與 Response 傳送細節
-python mycurl.py -v [https://httpbin.org/get](https://httpbin.org/get)
-3. 發送 POST 請求與帶入 HeaderBashpython mycurl.py -X POST [https://httpbin.org/post](https://httpbin.org/post) \
-  -H "Authorization: Bearer secret_token_123" \
-  -d "user=alice&action=login"
-4. 傳送 JSON 資料Bashpython mycurl.py [https://httpbin.org/post](https://httpbin.org/post) \
-  --json '{"title": "README", "completed": true}'
 5. 自動跟隨重定向並儲存至檔案Bashpython mycurl.py -L -o example.html [https://httpbin.org/redirect-to?url=https://example.com
