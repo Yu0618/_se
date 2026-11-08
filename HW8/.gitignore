@@ -1,0 +1,3 @@
+__pycache__/
+vault.db          # 本地端的 SQLite 資料庫，不需要上傳
+.env              # 存放 API 金鑰的私密檔案
